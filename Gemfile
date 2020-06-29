@@ -41,6 +41,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
+
+  gem "rspec-rails", "~> 4.0"
 end
 
 group :development do
