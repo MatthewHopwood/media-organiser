@@ -18,6 +18,7 @@ en:
       media_file:
         file_path: File Path
         media_type: Media Type
+        media_categories: Media Categories
     #   defaults:
     #     password: 'Password'
     #   user:
@@ -28,6 +29,7 @@ en:
     hints:
       media_file:
         file_path: "Don't include the file name"
+        media_categories: "Select all the apply"
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
