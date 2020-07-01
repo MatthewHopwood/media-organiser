@@ -50,6 +50,6 @@ class MediaFilesController < ApplicationController
   end
 
   def media_file_params
-    params.require(:media_file).permit(:name, :file_path, :comment)
+    params.require(:media_file).permit(:name, :file_path, :media_type_id, :comment)
   end
 end
