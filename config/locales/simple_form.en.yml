@@ -15,7 +15,8 @@ en:
       user:
         first_name: First Name
         last_name: Last Name
-
+      media_file:
+        file_path: File Path
     #   defaults:
     #     password: 'Password'
     #   user:
