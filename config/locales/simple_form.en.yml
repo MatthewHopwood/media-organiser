@@ -24,7 +24,9 @@ en:
     #       email: 'E-mail to sign in.'
     #     edit:
     #       email: 'E-mail.'
-    # hints:
+    hints:
+      media_file:
+        file_path: "Don't include the file name"
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
