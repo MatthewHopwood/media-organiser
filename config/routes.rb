@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   root to: "media_files#index"
   resources :media_files, except: :index
+  resources :media_types
 end
