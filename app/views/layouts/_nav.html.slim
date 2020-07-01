@@ -14,12 +14,13 @@ nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
   .row
     nav#sidebarMenu.col-md-3.col-lg-2.d-md-block.bg-light.sidebar.collapse
       .sidebar-sticky.pt-3
-        ul.nav.flex-column
-          li.nav-item
-            = link_to 'Playlists', root_path, class: 'nav-link'
-          li.nav-item
-            = link_to 'Media Files', media_files_path, class: 'nav-link'
-          li.nav-item
-            = link_to 'Media Types', media_types_path, class: 'nav-link'
-          li.nav-item
-            = link_to 'Media Categories', media_categories_path, class: 'nav-link'
+        - if user_signed_in?
+          ul.nav.flex-column
+            li.nav-item
+              = link_to 'Playlists', root_path, class: 'nav-link'
+            li.nav-item
+              = link_to 'Media Files', media_files_path, class: 'nav-link'
+            li.nav-item
+              = link_to 'Media Types', media_types_path, class: 'nav-link'
+            li.nav-item
+              = link_to 'Media Categories', media_categories_path, class: 'nav-link'
