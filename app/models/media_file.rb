@@ -1,6 +1,6 @@
 class MediaFile < ApplicationRecord
   belongs_to :media_type
-  validates_presence_of :name, :file_path
+  validates_presence_of :name, :file_path, :media_type_id
 
   def full_path
     "#{file_path}#{file_name}"
