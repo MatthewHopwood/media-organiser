@@ -38,9 +38,12 @@ class MediaTypesController < ApplicationController
   def destroy
     @media_type = find_media_type
 
-    @media_type.destroy!
-    redirect_to media_types_path, success: "Media Type was successfully deleted."
-
+    if !@media_type.media_files.exists?
+      @media_type.destroy!
+      redirect_to media_types_path, success: "Media Type was successfully deleted."
+    else
+      redirect_to media_types_path, error: "Media Type cannot be deleted when associated media files exist"
+    end
   end
 
   private
