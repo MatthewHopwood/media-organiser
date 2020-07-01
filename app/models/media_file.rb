@@ -1,5 +1,5 @@
 class MediaFile < ApplicationRecord
-
+  belongs_to :media_type
   validates_presence_of :name, :file_path
 
   def full_path
