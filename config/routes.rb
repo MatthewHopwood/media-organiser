@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  root to: "media_files#index"
-  resources :media_files, except: :index
+  root to: "playlists#index"
+  resources :media_files
   resources :media_types
+  resources :playlists, except: :index
 end
