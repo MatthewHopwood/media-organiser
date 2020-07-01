@@ -16,10 +16,9 @@ nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
       .sidebar-sticky.pt-3
         ul.nav.flex-column
           li.nav-item
-            a.nav-link href="#"
-              ' Playlists
+            = link_to 'Playlists', root_path, class: 'nav-link'
           li.nav-item
-            = link_to 'Media Files', root_path, class: 'nav-link'
+            = link_to 'Media Files', media_files_path, class: 'nav-link'
           li.nav-item
             = link_to 'Media Types', media_types_path, class: 'nav-link'
           li.nav-item
