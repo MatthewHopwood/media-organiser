@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_122742) do
+ActiveRecord::Schema.define(version: 2020_07_01_143541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2020_07_01_122742) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "media_file_categories", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "media_file_id", null: false
+    t.bigint "media_category_id", null: false
+    t.index ["media_category_id"], name: "index_media_file_categories_on_media_category_id"
+    t.index ["media_file_id"], name: "index_media_file_categories_on_media_file_id"
   end
 
   create_table "media_files", force: :cascade do |t|
@@ -57,5 +66,7 @@ ActiveRecord::Schema.define(version: 2020_07_01_122742) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "media_file_categories", "media_categories"
+  add_foreign_key "media_file_categories", "media_files"
   add_foreign_key "media_files", "media_types"
 end
