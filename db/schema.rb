@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2020_06_30_144102) do
   enable_extension "plpgsql"
 
   create_table "media_files", force: :cascade do |t|
-    t.string "name"
-    t.string "file_path"
+    t.string "name", null: false
+    t.string "file_path", null: false
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
