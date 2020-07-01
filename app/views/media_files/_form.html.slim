@@ -1,5 +1,6 @@
 = simple_form_for [@media_file] do |f|
   =f.input :name
   =f.input :file_path
+  =f.association :media_type
   =f.input :comment
   =f.submit 'Save', class: 'btn btn-primary btn-block mb-2'
