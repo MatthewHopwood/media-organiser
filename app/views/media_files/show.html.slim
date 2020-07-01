@@ -9,12 +9,14 @@
       dd.col-sm-4 = @media_file.full_path
       dt.col-sm-8 File Type
       dd.col-sm-4 = @media_file.media_type.name
-      dt.col-sm-8 File Categories
-      dd.col-sm-4
-        - @media_file.media_categories.each do |media_category|
-           = "#{media_category.name} / "
-      dt.col-sm-8 File Comment
-      dd.col-sm-4 = simple_format @media_file.comment
+      - if @media_file.media_categories.present?
+        dt.col-sm-8 File Categories
+        dd.col-sm-4
+          - @media_file.media_categories.each do |media_category|
+            = "#{media_category.name} / "
+      - if @media_file.comment.present?
+        dt.col-sm-8 File Comment
+        dd.col-sm-4 = simple_format @media_file.comment
     a.btn.btn-primary.mt-3 href=edit_media_file_path(@media_file) Edit
     = link_to 'Delete', media_file_path(@media_file),
       class: 'btn btn-outline-danger mt-3 ml-3',

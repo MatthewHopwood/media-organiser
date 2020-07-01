@@ -4,7 +4,12 @@
   .card-body
     dl.row
       dt.col-sm-8 Name
-      dd.col-sm-4 = @playlist.name
+      dd.col-sm-4
+        u = @playlist.name
+      dt.col-sm-8 Media List
+      dd.col-sm-4
+        - @playlist.media_files.each do |media_file|
+          = simple_format "#{media_file.name} \n"
     a.btn.btn-primary.mt-3 href=edit_playlist_path(@playlist) Edit
     = link_to 'Delete', playlist_path(@playlist),
       class: 'btn btn-outline-danger mt-3 ml-3',

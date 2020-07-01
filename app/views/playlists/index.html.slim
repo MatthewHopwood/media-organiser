@@ -3,8 +3,10 @@
   table.table.mb-0.table-hover
     thead
       th Name
+      th Media Count
     tbody
       - @playlists.each do |playlist|
         tr
           td = link_to playlist.name, playlist_path(playlist)
+          td = playlist.media_files.count
 a.btn.btn-primary.lift.mt-2 href=new_playlist_path Add Playlist
