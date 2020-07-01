@@ -39,7 +39,7 @@ class MediaCategoriesController < ApplicationController
     @media_category = find_media_category
 
     @media_category.destroy!
-    redirect_to mmedia_categories_path, success: "Media Category was successfully deleted."
+    redirect_to media_categories_path, success: "Media Category was successfully deleted."
 
   end
 
