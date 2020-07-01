@@ -2,7 +2,7 @@ class MediaFilesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @media_files = MediaFile.order(:name)
+    @media_files = MediaFile.order(:name).page params[:page]
   end
 
   def show
