@@ -39,7 +39,7 @@ class MediaFilesController < ApplicationController
     @media_file = find_media_file
 
     @media_file.destroy!
-    redirect_to root_path, success: "Media File was successfully deleted."
+    redirect_to media_files_path, success: "Media File was successfully deleted."
 
   end
 
