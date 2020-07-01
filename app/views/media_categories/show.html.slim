@@ -1,0 +1,12 @@
+- content_for(:title) { @media_category.name.titleize }
+
+.card
+  .card-body
+    dl.row
+      dt.col-sm-8 Name
+      dd.col-sm-4 = @media_category.name
+    a.btn.btn-primary.mt-3 href=edit_media_category_path(@media_category) Edit
+    = link_to 'Delete', media_category_path(@media_category),
+      class: 'btn btn-outline-danger mt-3 ml-3',
+      method: :delete,
+      data: { confirm: 'Are you sure you wish to delete this media category?' }
