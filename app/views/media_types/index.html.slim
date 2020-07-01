@@ -1,0 +1,10 @@
+- content_for(:title) { 'Media Types' }
+.card
+  table.table.mb-0.table-hover
+    thead
+      th Name
+    tbody
+      - @media_types.each do |media_type|
+        tr
+          td = link_to media_type.name, media_type_path(media_type)
+a.btn.btn-primary.lift.mt-2 href=new_media_type_path Add Media Type
