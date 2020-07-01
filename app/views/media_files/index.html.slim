@@ -1,0 +1,10 @@
+- content_for(:title) { 'Media Files' }
+.card
+  table.table.mb-0.table-hover
+    thead
+      th Name
+    tbody
+      - @media_files.each do |media_file|
+        tr
+          td = link_to media_file.name.titleize, media_file_path(media_file)
+a.btn.btn-primary.lift.mt-2 href=new_media_file_path Add Media File

@@ -1,0 +1,16 @@
+- content_for(:title) { @media_file.name.titleize }
+
+.card
+  .card-body
+    dl.row
+      dt.col-sm-8 File Name
+      dd.col-sm-4 = @media_file.file_name
+      dt.col-sm-8 File Path
+      dd.col-sm-4 = @media_file.full_path
+      dt.col-sm-8 File Comment
+      dd.col-sm-4 = simple_format @media_file.comment
+    a.btn.btn-primary.mt-3 href=edit_media_file_path(@media_file) Edit
+    = link_to 'Delete', media_file_path(@media_file),
+      class: 'btn btn-outline-danger mt-3 ml-3',
+      method: :delete,
+      data: { confirm: 'Are you sure you wish to delete this media file?' }
