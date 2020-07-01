@@ -9,12 +9,40 @@ html
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    section
-      .container
+    nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
+      a.navbar-brand.col-md-3.col-lg-2.mr-0.px-3 href="#" = user_signed_in? ? current_user.email : 'Not Signed In'
+      button.navbar-toggler.position-absolute.d-md-none.collapsed type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation"
+        span.navbar-toggler-icon
+      ul.navbar-nav.px-3
         - if user_signed_in?
-          = link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-primary my-3'
-          = link_to 'Home', root_path, class: 'btn btn-outline-info my-3 ml-3'
+          li.nav-item.text-nowrap
+            = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link'
         - else
-          = link_to 'Sign In', new_user_session_path, class: 'btn btn-outline-primary my-3'
-        = flash_messages
-        = yield
+          li.nav-item.text-nowrap
+            = link_to 'Sign In', new_user_session_path, class: 'nav-link'
+
+    .container-fluid
+      .row
+        - if user_signed_in?
+          nav#sidebarMenu.col-md-3.col-lg-2.d-md-block.bg-light.sidebar.collapse
+            .sidebar-sticky.pt-3
+              ul.nav.flex-column
+                li.nav-item
+                  a.nav-link href="#"
+                    ' Playlists
+                li.nav-item
+                  a.nav-link href="#"
+                    ' Media Files
+                li.nav-item
+                  a.nav-link href="#"
+                    ' Media Types
+                li.nav-item
+                  a.nav-link href="#"
+                    ' Media Categories
+
+        main.col-md-9.ml-sm-auto.col-lg-10.px-md-4 role="main"
+          .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+            - if content_for?(:title)
+              h1 = content_for(:title)
+          = flash_messages
+          = yield
