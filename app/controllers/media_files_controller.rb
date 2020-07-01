@@ -1,4 +1,6 @@
 class MediaFilesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @media_files = MediaFile.order(:name)
   end
@@ -36,8 +38,8 @@ class MediaFilesController < ApplicationController
   def destroy
     @media_file = find_media_file
 
-    @academy.destroy!
-    redirect_to media_file_path, success: "Media File was successfully deleted."
+    @media_file.destroy!
+    redirect_to root_path, success: "Media File was successfully deleted."
 
   end
 
@@ -48,6 +50,6 @@ class MediaFilesController < ApplicationController
   end
 
   def media_file_params
-    params.require(:academy).permit(:name, :comment)
+    params.require(:media_file).permit(:name, :file_path, :comment)
   end
 end
