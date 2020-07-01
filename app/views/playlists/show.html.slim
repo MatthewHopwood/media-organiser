@@ -1,17 +1,28 @@
 - content_for(:title) { @playlist.name.titleize }
 
-.card
+.card.mb-3
   .card-body
     dl.row
-      dt.col-sm-8 Name
-      dd.col-sm-4
-        u = @playlist.name
-      dt.col-sm-8 Media List
-      dd.col-sm-4
-        - @playlist.media_files.each do |media_file|
-          = simple_format "#{media_file.name} \n"
-    a.btn.btn-primary.mt-3 href=edit_playlist_path(@playlist) Edit
+      dt.col-sm-8 Playlist Name
+      dd.col-sm-4 = @playlist.name
+
+    a.btn.btn-primary.mt-3 href=edit_playlist_path(@playlist) Edit / Add Media
     = link_to 'Delete', playlist_path(@playlist),
       class: 'btn btn-outline-danger mt-3 ml-3',
       method: :delete,
       data: { confirm: 'Are you sure you wish to delete this playlist?' }
+
+.card
+  table.table.mb-0.table-hover
+    thead
+      th Media Name
+      th Type
+      th Categories
+    tbody
+      - @playlist.media_files.each do |media_file|
+        tr
+          td = link_to media_file.name, media_file_path(media_file.id)
+          td = media_file.media_type.name
+          td
+            - media_file.media_categories.each do |media_category|
+              = "#{media_category.name} / "

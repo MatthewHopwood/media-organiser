@@ -4,7 +4,12 @@
   .card-body
     dl.row
       dt.col-sm-8 Name
-      dd.col-sm-4 = @media_category.name
+      dd.col-sm-4
+        u = @media_category.name
+      dt.col-sm-8 Associated Media Files
+      dd.col-sm-4
+        - @media_category.media_files.each do |media_file|
+          = simple_format "#{media_file.name} \n"
     a.btn.btn-primary.mt-3 href=edit_media_category_path(@media_category) Edit
     = link_to 'Delete', media_category_path(@media_category),
       class: 'btn btn-outline-danger mt-3 ml-3',
