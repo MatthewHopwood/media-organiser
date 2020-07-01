@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_07_01_122742) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "media_file_id"
+    t.bigint "media_file_id", null: false
     t.index ["media_file_id"], name: "index_media_types_on_media_file_id"
   end
 
