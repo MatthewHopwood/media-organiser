@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_143541) do
+ActiveRecord::Schema.define(version: 2020_07_01_151425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,15 @@ ActiveRecord::Schema.define(version: 2020_07_01_143541) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "playlist_media_files", force: :cascade do |t|
+    t.bigint "playlist_id", null: false
+    t.bigint "media_file_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["media_file_id"], name: "index_playlist_media_files_on_media_file_id"
+    t.index ["playlist_id"], name: "index_playlist_media_files_on_playlist_id"
+  end
+
   create_table "playlists", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -69,4 +78,6 @@ ActiveRecord::Schema.define(version: 2020_07_01_143541) do
   add_foreign_key "media_file_categories", "media_categories"
   add_foreign_key "media_file_categories", "media_files"
   add_foreign_key "media_files", "media_types"
+  add_foreign_key "playlist_media_files", "media_files"
+  add_foreign_key "playlist_media_files", "playlists"
 end
