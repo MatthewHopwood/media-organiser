@@ -19,6 +19,8 @@ en:
         file_path: File Path
         media_type: Media Type
         media_categories: Media Categories
+      playlist:
+        media_files: Media Files
     #   defaults:
     #     password: 'Password'
     #   user:
