@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_07_01_094219) do
   create_table "media_files", force: :cascade do |t|
     t.string "name", null: false
     t.string "file_path", null: false
-    t.string "comment"
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

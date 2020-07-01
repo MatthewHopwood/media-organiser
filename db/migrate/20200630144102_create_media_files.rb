@@ -3,7 +3,7 @@ class CreateMediaFiles < ActiveRecord::Migration[6.0]
     create_table :media_files do |t|
       t.string :name, null: false
       t.string :file_path, null: false
-      t.string :comment
+      t.text :comment
 
       t.timestamps
     end
