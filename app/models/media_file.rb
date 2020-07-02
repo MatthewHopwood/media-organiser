@@ -1,5 +1,6 @@
 class MediaFile < ApplicationRecord
   belongs_to :media_type
+  belongs_to :image, optional: true
   has_many :media_file_categories, dependent: :destroy
   has_many :playlist_media_files, dependent: :destroy
   has_many :media_categories, through: :media_file_categories
@@ -14,6 +15,6 @@ class MediaFile < ApplicationRecord
   end
 
   def file_name
-    name.tr(' ', '-').downcase
+    name.titleize.tr(' ', '-')
   end
 end
