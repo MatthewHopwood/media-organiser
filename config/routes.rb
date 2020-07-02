@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :media_categories
   resources :media_files
   resources :media_types
+  resources :images
   resources :playlists, except: :index
 end
