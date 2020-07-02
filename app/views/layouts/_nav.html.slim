@@ -5,7 +5,9 @@ nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
   ul.navbar-nav.px-3
     - if user_signed_in?
       li.nav-item.text-nowrap
-        = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link'
+        a.nav-link data-method="delete" href=destroy_user_session_path
+          i.mr-1.fas.fa-door-open
+          ' Sign Out
     - else
       li.nav-item.text-nowrap
         = link_to 'Sign In', new_user_session_path, class: 'nav-link'
@@ -17,10 +19,18 @@ nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
         - if user_signed_in?
           ul.nav.flex-column
             li.nav-item
-              = link_to 'Playlists', root_path, class: 'nav-link'
+              a.nav-link href=root_path
+                i.fa-fw.fe.mr-1> class="fas fa-music"
+                ' Playlists
             li.nav-item
-              = link_to 'Media Files', media_files_path, class: 'nav-link'
+               a.nav-link href=media_files_path
+                i.fa-fw.fe.mr-1> class="far fa-file-audio"
+                ' Media Files
             li.nav-item
-              = link_to 'Media Types', media_types_path, class: 'nav-link'
+              a.nav-link href=media_types_path
+                i.fa-fw.fe.mr-1> class="fab fa-soundcloud"
+                ' Media Types
             li.nav-item
-              = link_to 'Media Categories', media_categories_path, class: 'nav-link'
+              a.nav-link href=media_categories_path
+                i.fa-fw.fe.mr-1> class="fas fa-grip-vertical"
+                ' Categories
