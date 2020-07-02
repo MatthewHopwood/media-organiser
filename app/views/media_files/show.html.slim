@@ -7,6 +7,9 @@
       dd.col-sm-4 = @media_file.file_name
       dt.col-sm-8 File Path
       dd.col-sm-4 = @media_file.full_path
+      - if @media_file.image.present?
+        dt.col-sm-8 Image
+        dd.col-sm-4 = link_to @media_file.image.file_name, image_path(@media_file.image_id)
       dt.col-sm-8 File Type
       dd.col-sm-4 = @media_file.media_type.name
       - if @media_file.media_categories.present?
