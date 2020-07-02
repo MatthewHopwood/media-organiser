@@ -8,7 +8,8 @@
       dt.col-sm-8 File Path
       dd.col-sm-4 = @image.full_path
     a.btn.btn-primary.mt-3 href=edit_image_path(@image) Edit
-    = link_to 'Delete', image_path(@image),
-      class: 'btn btn-outline-danger mt-3 ml-3',
-      method: :delete,
-      data: { confirm: 'Are you sure you wish to delete this image?' }
+    - if !@image.media_files.exists?
+      = link_to 'Delete', image_path(@image),
+        class: 'btn btn-outline-danger mt-3 ml-3',
+        method: :delete,
+        data: { confirm: 'Are you sure you wish to delete this image?' }
