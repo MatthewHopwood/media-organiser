@@ -4,7 +4,8 @@
   .card-body
     dl.row
       dt.col-sm-8 File Name
-      dd.col-sm-4 = @media_file.file_name
+      dd.col-sm-4
+        u = @media_file.file_name
       dt.col-sm-8 File Path
       dd.col-sm-4 = @media_file.full_path
       - if @media_file.image.present?
