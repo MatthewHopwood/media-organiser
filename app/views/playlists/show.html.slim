@@ -19,7 +19,7 @@
       th Type
       th Categories
     tbody
-      - @playlist.media_files.each do |media_file|
+      - @playlist.media_files.order(:name).each do |media_file|
         tr
           td = link_to media_file.name, media_file_path(media_file.id)
           td = media_file.media_type.name
