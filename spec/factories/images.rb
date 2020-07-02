@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :image do
-    name { "MyString" }
+    name { "Image File" }
     file_path { "MyString" }
   end
 end
