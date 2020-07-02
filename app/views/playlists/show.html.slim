@@ -5,6 +5,10 @@
     dl.row
       dt.col-sm-8 Playlist Name
       dd.col-sm-4 = @playlist.name
+      dt.col-sm-8 Created
+      dd.col-sm-4 = @playlist.created_at.strftime('%d %b %Y - %H:%M')
+      dt.col-sm-8 Last Updated
+      dd.col-sm-4 = @playlist.updated_at.strftime('%d %b %Y - %H:%M')
 
     a.btn.btn-primary.mt-3 href=edit_playlist_path(@playlist) Edit / Add Media
     = link_to 'Delete', playlist_path(@playlist),
