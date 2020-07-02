@@ -6,7 +6,7 @@ class MediaFile < ApplicationRecord
   has_many :media_categories, through: :media_file_categories
   has_many :playlists, through: :playlist_media_files
 
-  validates_presence_of :name, :file_path, :media_type_id
+  validates_presence_of :name, :file_path
 
   paginates_per 10
 
