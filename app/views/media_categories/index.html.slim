@@ -1,10 +1,11 @@
 - content_for(:title) { 'Media Categories' }
-.card
-  table.table.mb-0.table-hover
-    thead
-      th Name
-    tbody
-      - @media_categories.each do |media_category|
-        tr
-          td = link_to media_category.name, media_category_path(media_category)
+- if @media_categories.exists?
+  .card
+    table.table.mb-0.table-hover
+      thead
+        th Name
+      tbody
+        - @media_categories.each do |media_category|
+          tr
+            td = link_to media_category.name, media_category_path(media_category)
 a.btn.btn-primary.lift.mt-2 href=new_media_category_path Add Media Category

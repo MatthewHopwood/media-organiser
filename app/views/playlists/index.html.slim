@@ -1,14 +1,15 @@
 - content_for(:title) { 'Playlists' }
-.card
-  table.table.mb-0.table-hover
-    thead
-      th Name
-      th Media Count
-      th Created
-    tbody
-      - @playlists.each do |playlist|
-        tr
-          td = link_to playlist.name, playlist_path(playlist)
-          td = playlist.media_files.count
-          td = playlist.created_at.strftime('%d %b %Y')
+- if @playlists.exists?
+  .card
+    table.table.mb-0.table-hover
+      thead
+        th Name
+        th Media Count
+        th Created
+      tbody
+        - @playlists.each do |playlist|
+          tr
+            td = link_to playlist.name, playlist_path(playlist)
+            td = playlist.media_files.count
+            td = playlist.created_at.strftime('%d %b %Y')
 a.btn.btn-primary.lift.mt-2 href=new_playlist_path Add Playlist

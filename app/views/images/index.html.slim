@@ -1,11 +1,11 @@
 - content_for(:title) { 'Images' }
-
-.card
-  table.table.mb-0.table-hover
-    thead
-      th Name
-    tbody
-      - @images.each do |image|
-        tr
-          td = link_to image.name.titleize, image_path(image)
+- if @images.exists?
+  .card
+    table.table.mb-0.table-hover
+      thead
+        th Name
+      tbody
+        - @images.each do |image|
+          tr
+            td = link_to image.name.titleize, image_path(image)
 a.btn.btn-primary.lift.mt-2 href=new_image_path Add Image

@@ -6,7 +6,8 @@
       dt.col-sm-8 Name
       dd.col-sm-4
         u = @media_type.name
-      dt.col-sm-8 Associated Media Files
+      - if @media_type.media_files.exists?
+        dt.col-sm-8 Associated Media Files
       dd.col-sm-4
         - @media_type.media_files.each do |media_file|
           = simple_format link_to "#{media_file.name} \n", media_file_path(media_file.id)
